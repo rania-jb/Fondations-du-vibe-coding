@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ran Yaa - Frontend Developer passionate about web technologies and AI">
+  <title>Ran Yaa | Frontend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #6B8DD6 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      color: #24022b;
+      padding: 2rem;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 700px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero__name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 6vw, 5rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .hero__subtitle {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-weight: 500;
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero__description {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      line-height: 1.7;
+      opacity: 0.85;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    .hero__button {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #6366f1;
+      background: #ffffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero__button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+      background: #f8fafc;
+    }
+
+    .hero__button:active {
+      transform: translateY(-1px);
+    }
+
+    .decorative-circle {
+      position: fixed;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      pointer-events: none;
+    }
+
+    .circle-1 {
+      width: 400px;
+      height: 400px;
+      top: -100px;
+      right: -100px;
+    }
+
+    .circle-2 {
+      width: 300px;
+      height: 300px;
+      bottom: -50px;
+      left: -50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="decorative-circle circle-1"></div>
+  <div class="decorative-circle circle-2"></div>
+  
+  <section class="hero">
+    <h1 class="hero__name">Hi ! I'm Rania</h1>
+    <p class="hero__subtitle">Frontend Developer passionate about web technologies and AI</p>
+    <p class="hero__description">
+      My goal as a frontend developer is to craft beautiful, intuitive, and performant user experiences 
+      that bridge the gap between cutting-edge technology and human-centered design. 
+      I believe in writing clean, maintainable code that makes a difference.
+    </p>
+    <a href="#projects" class="hero__button">Voir mes projets</a>
+  </section>
+
+  <script>
+    // Subtle parallax effect on mouse move
+    document.addEventListener('mousemove', (e) => {
+      const circles = document.querySelectorAll('.decorative-circle');
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      
+      circles.forEach((circle, index) => {
+        const factor = index === 0 ? 1 : -1;
+        circle.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+      });
+    });
+  </script>
+</body>
+</html>
